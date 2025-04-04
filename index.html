@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 8px 12px;
+        border: none;
+        background-color: #5cb85c;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #4cae4c;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="container-list">
+        <h2 id="title">My List</h2>
+        <ul id="bucketList">
+          <li>I'm John Carlo M Sanchez</li>
+          <li>Im great at everything</li>
+          <li>I like you</li>
+          <li>Can't design properly lol</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <input type="text" id="itemInput" placeholder="Add an item" />
+
+      <button id="addItemBtn" onclick="addItem()">Add Item</button>
+      <button id="changeFontBtn" onclick="changefont()">Change Font</button>
+      <button id="makeBoldBtn" onclick="makebold()">Make Bold</button>
+    </div>
+    <script>
+      let fontIndex = 0;
+      const fonts = [
+        "Comic Sans MS",
+        "Helvetica",
+        "Times New Roman",
+        "Courier New",
+      ];
+      let isBold = false;
+
+      function addItem() {
+        var myinput = document.getElementById("itemInput");
+        var ul = document.getElementById("bucketList");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(myinput.value));
+        ul.appendChild(li);
+      }
+
+      function changefont() {
+        const listItems = document.querySelectorAll("#bucketList li");
+        listItems.forEach((item) => {
+          item.style.fontFamily = fonts[fontIndex];
+        });
+        fontIndex = (fontIndex + 1) % fonts.length;
+      }
+
+      function makebold() {
+        const listItems = document.querySelectorAll("#bucketList li");
+        listItems.forEach((item) => {
+          item.style.fontWeight = isBold ? "normal" : "bold";
+        });
+        isBold = !isBold;
+      }
+    </script>
+  </body>
+</html>

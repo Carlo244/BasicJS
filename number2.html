@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bible Verse Design</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 8px 12px;
+        border: none;
+        background-color: #5cb85c;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #4cae4c;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Isaiah 41:10</h1>
+      <h2>
+        Fear not, for I am with you; be not dismayed, for I am your God; I will
+        strengthen you, I will help you, I will uphold you with my righteous
+        right hand.
+      </h2>
+    </div>
+    <div>
+      <button id="AddBG" onclick="AddBG()">Add Design</button>
+      <button id="removeBD" onclick="RemoveBG()">Remove Design</button>
+    </div>
+    <script>
+      function AddBG() {
+        const container = document.querySelector(".container");
+        const h1 = container.querySelector("h1");
+        const h2 = container.querySelector("h2");
+
+        container.style.backgroundImage =
+          "url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"; // Replace with your image URL
+        container.style.backgroundSize = "cover";
+        container.style.backgroundPosition = "center";
+
+        h1.style.fontSize = "50px";
+        h1.style.fontFamily = "Arial, sans-serif";
+        h1.style.fontWeight = "bold";
+        h1.style.color = "white";
+        h1.style.textShadow = "2px 2px 5px black";
+
+        h2.style.fontSize = "30px";
+        h2.style.fontFamily = "'Times New Roman', serif";
+        h2.style.fontWeight = "normal";
+        h2.style.color = "black";
+        h2.style.textAlign = "center";
+      }
+
+      function RemoveBG() {
+        const container = document.querySelector(".container");
+        const h1 = container.querySelector("h1");
+        const h2 = container.querySelector("h2");
+
+        container.style.backgroundImage = "none";
+        container.style.backgroundSize = "";
+        container.style.backgroundPosition = "";
+        container.style.height = "auto";
+
+        h1.style.fontSize = "";
+        h1.style.fontFamily = "";
+        h1.style.fontWeight = "";
+        h1.style.color = "";
+        h1.style.textShadow = "";
+
+        h2.style.fontSize = "";
+        h2.style.fontFamily = "";
+        h2.style.fontWeight = "";
+        h2.style.color = "";
+        h2.style.textAlign = "";
+      }
+    </script>
+  </body>
+</html>

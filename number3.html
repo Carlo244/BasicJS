@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Logging and Validation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      input {
+        margin: 10px 0;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return handleSubmit()">
+      <label for="username">Username:</label><br />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your username"
+      /><br /><br />
+
+      <label for="password">Password:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+      /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function handleSubmit() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Log username and password to the console
+        console.log("Username:", username);
+        console.log("Password:", password);
+
+        // Validate password requirements
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters long.");
+          return false; // Prevent form submission
+        }
+
+        const hasUppercase = /[A-Z]/.test(password);
+        const hasLowercase = /[a-z]/.test(password);
+
+        if (!hasUppercase) {
+          alert("Password must contain at least one uppercase letter.");
+          return false; // Prevent form submission
+        }
+
+        if (!hasLowercase) {
+          alert("Password must contain at least one lowercase letter.");
+          return false; // Prevent form submission
+        }
+
+        // If all checks pass
+        alert(`Welcome, ${username}!`);
+        return true; // Allow form submission
+      }
+    </script>
+  </body>
+</html>
